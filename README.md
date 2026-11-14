@@ -25,6 +25,7 @@ Resultats : resultats_mp5.mat, tableaux (.csv) et figures (.png).
 | compute_metrics.m | RMSE, temps de convergence, erreur en regime permanent |
 | filtre_kf.m | Kalman lineaire (vitesse constante) |
 | filtre_wiener.m | Filtre de Wiener FIR |
+| run_kf_demo.m | Premier test du Kalman (graine 999, sigma = 5) |
 | filtre_ekf.m, filtre_ukf.m | EKF / UKF qui partent de zero (ne connaissent pas le cercle) |
 | filtre_ekf_info.m, filtre_ukf_info.m | EKF / UKF informes (connaissent R, omega, cap) |
 | tune_kf.m, tune_wiener.m, tune_ekf_ukf.m | Reglage des parametres (graine 999) |
