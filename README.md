@@ -34,6 +34,8 @@ Resultats : resultats_mp5.mat, tableaux (.csv) et figures (.png).
 ## Convention d'interface
 Chaque filtre : `x_est = filtre_xxx(z, params)`, avec z de taille 2 x N et x_est 2 x N.
 Le bruit de mesure est lu dans `params.sigma_mes` (erreur si absent).
+## Resultats
+Dossier `Résultats/` : resultats_mp5.mat (resultats bruts), tab_*.csv (tableaux), fig_*.png (figures).
 
 ## Equipe
 - Membre 1 : Cheikhna Ahmad Tidiane Diallo(simulation, Kalman, Wiener, evaluation commune)
