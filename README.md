@@ -35,6 +35,6 @@ Chaque filtre : `x_est = filtre_xxx(z, params)`, avec z de taille 2 x N et x_est
 Le bruit de mesure est lu dans `params.sigma_mes` (erreur si absent).
 
 ## Equipe
-- Membre 1 : simulation, Kalman, Wiener, evaluation commune
-- Membre 2 : EKF, UKF
-- Membre 3 : [a completer]
+- Membre 1 : Cheikhna Ahmad Tidiane Diallo(simulation, Kalman, Wiener, evaluation commune)
+- Membre 2 : Ndeye Yaram Diop (EKF, UKF)
+- Membre 3 : Aminata Ndack Fall [a completer]
