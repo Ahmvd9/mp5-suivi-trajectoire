@@ -89,4 +89,4 @@ temps de convergence.
 ## Équipe
 - Membre 1 : Cheikhna Ahmad Tidiane Diallo (simulation, Kalman, Wiener, évaluation commune)
 - Membre 2 : Ndeye Yaram Diop (EKF, UKF)
-- Membre 3 : Aminata Ndack Fall [rôle à compléter]
+- Membre 3 : Aminata Ndack Fall (volet avancé: Benchmark)
