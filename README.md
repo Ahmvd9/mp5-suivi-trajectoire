@@ -71,6 +71,48 @@ temps de convergence.
 - À fort bruit (σ = 20), l'EKF de zéro est plus lent que l'UKF à identifier la vitesse
   angulaire sur certaines graines (voir `Résultats/fig_pire_graine.png`).
 
+## Volet avancé (benchmark)
+Conformément au sujet, aucune méthode avancée n'est implémentée par le groupe : on s'appuie
+sur les fonctions Matlab existantes et sur la littérature.
+
+| Méthode | Comment elle est évaluée |
+| --- | --- |
+| LSTM / GRU | testés sous Matlab avec la Deep Learning Toolbox (`lstmLayer`, `gruLayer`, `trainnet`) |
+| Filtre particulaire (SIR) | littérature (`trackingPF` n'est pas disponible sur notre licence) |
+| Deep Kalman Filter | littérature (Krishnan et al. 2015, KalmanNet 2022) |
+
+Script `benchmark_avance.m` :
+- mêmes graines de test (1 à 100) et mêmes métriques que `run_experiments` ;
+- réseaux entraînés sur des **cercles aléatoires** (rayon, vitesse, sens, centre et phase tirés
+  au hasard, graines 1001 à 1200, validation 990 à 998) : ils ne connaissent pas le cercle de test,
+  comme les EKF/UKF « de zéro » ;
+- niveaux de bruit testés : σ = 1, 5 et 20 m.
+
+Lancer :
+1. Prérequis : Deep Learning Toolbox (R2024a ou plus récent).
+2. Exécuter `benchmark_avance` avec `cfg.quick = true` (test de quelques minutes).
+3. Passer `cfg.quick = false` pour le calcul complet (environ 15 à 30 minutes).
+
+Sorties : `tab_avance_*.csv`, `tab_complet_*.csv` (fusion avec `resultats_mp5.mat`),
+`fig_complet_rmse.png`, `resultats_avance.mat`.
+
+### Résultats du volet avancé : RMSE moyen (m) sur 100 graines
+| Méthode | σ = 1 | 5 | 20 |
+| --- | --- | --- | --- |
+| Brut (mesures) | 1,42 | 7,08 | 28,31 |
+| Kalman | 0,66 | 2,56 | 8,51 |
+| UKF (de zéro) | 0,33 | 1,52 | 5,97 |
+| LSTM | 2,71 | 4,65 | 9,76 |
+| GRU | 1,89 | 4,96 | 10,35 |
+
+- Les réseaux font mieux que les mesures brutes à σ = 5 et 20 m, mais **moins bien** à σ = 1 m :
+  ils gardent une erreur résiduelle de quelques mètres, même quand le bruit est faible.
+- Ils restent 1,6 à 3 fois moins précis que l'UKF, qui exploite le modèle physique du mouvement.
+- Coût : environ 13 000 (GRU) à 17 000 (LSTM) paramètres appris, 1 à 2 minutes d'entraînement par σ,
+  contre deux paramètres de bruit réglés pour l'EKF et l'UKF.
+
+Figure : `Résultats/fig_complet_rmse.png`.
+
 ## Fichiers
 | Fichier | Rôle |
 | --- | --- |
@@ -84,6 +126,7 @@ temps de convergence.
 | tune_kf.m, tune_wiener.m, tune_ekf_ukf.m | Réglage des paramètres (graine 999) |
 | run_kf_demo.m | Premier test du Kalman (graine 999, σ = 5) |
 | run_experiments.m | Évaluation Monte Carlo finale (graines 1 à 100) |
+| benchmark_avance.m | Volet avancé : test des LSTM / GRU (Deep Learning Toolbox) |
 | Résultats/ | Résultats bruts, tableaux et figures de l'évaluation finale |
 
 ## Équipe
