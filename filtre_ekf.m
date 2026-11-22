@@ -12,8 +12,6 @@ function x_est = filtre_ekf(z, params)
 %   omega*v). On le LINEARISE a chaque pas autour de l'estimation courante,
 %   grace a la Jacobienne F.
 
-    % --- 1) Lecture de sigma : on prefere sigma_mes, sinon sigma, sinon ERREUR ---
-    % (evite le piege "sigma = 5 par defaut" qui faussait les resultats)
     if isfield(params, 'sigma_mes'),   sigma = params.sigma_mes;
     elseif isfield(params, 'sigma'),   sigma = params.sigma;
     else, error('Renseigner params.sigma_mes avant l''appel.');
