@@ -35,7 +35,7 @@ err = sqrt(sum((p_true - x_est).^2, 1));      % erreur de position a chaque inst
 m.rmse = sqrt(mean(err.^2));
 
 % Temps de convergence, calcule sur l'erreur lissee (moyenne glissante) :
-% un seul point isole au-dessus du seuil ne bloque plus la convergence.
+% un seul point isole au-dessus du seuil ne bloque pas la convergence.
 w = max(1, round(params.conv_window / params.dt));  % taille de fenetre (echantillons)
 err_s  = movmean(err, w);                     % erreur lissee (1 x N)
 seuil  = params.conv_factor * sigma;
