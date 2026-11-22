@@ -27,7 +27,7 @@ H  = [1 0 0 0 0; 0 1 0 0 0];          % on ne mesure que (x, y)
 q_pos = 1e-3;  q_v = 1e-4;  q_theta = 1e-6;  q_omega = 1e-7;
 Q = diag([q_pos, q_pos, q_v, q_theta, q_omega]) * dt;
 
-% INITIALISATION INFORMEE : c'est ici que le filtre "triche" (connait le cercle)
+% Initialisation informee : le filtre connait le cercle (R, omega, cap)
 %   vitesse v0 = R*omega0 ; cap = tangent au cercle autour de l'ORIGINE
 X = [ z(1,1);
     z(2,1);
