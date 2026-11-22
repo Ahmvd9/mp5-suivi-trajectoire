@@ -25,8 +25,3 @@ params.perm_frac   = 0.2;       % regime permanent = derniers 20 % de la duree
 params.q = 1;               % bruit de processus du Kalman (regle sur la graine 999)
 params.L_sigma = [10 20 20 50 50];   % ordre de Wiener par sigma (regle sur graines 990-998)
 % --- Parametres propres aux filtres : a ajouter apres accord du groupe ---
-% params.q      = ;   % bruit de processus (KF, EKF, UKF)
-% params.P0     = ;   % incertitude initiale
-% params.omega0 = ;   % omega initial suppose (EKF, UKF)
-% params.L      = ;   % ordre du filtre de Wiener (10, 20, 50)
-end
