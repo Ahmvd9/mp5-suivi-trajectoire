@@ -13,7 +13,7 @@ function [x_true, z] = simulate_trajectory(sigma, seed)
 %     z      : 2 x N  positions mesurees = positions vraies + sigma*randn
 %              (ligne 1 = x, ligne 2 = y)
 %
-%   Les parametres (R, omega, dt, T) viennent de params.m.
+%   Les parametres (R, omega, dt, T) viennent de get_params.m.
 
     params = get_params();                   % charge la structure "params"
     rng(seed);                               % reproductibilite
