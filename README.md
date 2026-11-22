@@ -79,7 +79,7 @@ scientifique, dans le rapport. Aucun code n'est fourni pour ce volet.
 ## Fichiers
 | Fichier | Rôle |
 | --- | --- |
-| get_params.m | Paramètres communs (à ne pas modifier seul) |
+| get_params.m | Paramètres communs |
 | simulate_trajectory.m | Trajectoire vraie + mesures bruitées |
 | compute_metrics.m | RMSE, temps de convergence, erreur en régime permanent |
 | filtre_kf.m | Kalman linéaire (vitesse constante) |
